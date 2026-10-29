@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Планировщик поездок</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header class="top"><div class="brand">✈️ Маршрут<span>·</span>мечты</div><div id="userbar" class="hidden"><span id="username"></span><button id="logout" class="ghost">Выйти</button></div></header>
+<main>
+<section id="auth" class="auth-card"><div class="eyebrow">ВАРИАНТ №9 · ВЕБ-ПРИЛОЖЕНИЕ</div><h1>Путешествия начинаются с плана.</h1><p class="muted">Создавайте поездки, распределяйте события по дням и контролируйте бюджет.</p>
+<div class="tabs"><button class="tab active" data-mode="login">Вход</button><button class="tab" data-mode="register">Регистрация</button></div>
+<form id="auth-form"><label>Логин<input id="auth-user" minlength="3" maxlength="50" required autocomplete="username" placeholder="Ваш логин"></label><label>Пароль<input id="auth-password" type="password" minlength="6" required autocomplete="current-password" placeholder="Не менее 6 символов"></label><button class="primary" id="auth-submit">Войти →</button></form></section>
+<section id="dashboard" class="hidden"><div class="hero"><div><div class="eyebrow">ВАШИ ПРИКЛЮЧЕНИЯ</div><h1>Мои поездки <span class="accent">✦</span></h1><p class="muted">Каждое путешествие — новая история.</p></div><button id="new-trip" class="primary">＋ Новая поездка</button></div>
+<div class="stats"><div class="stat"><small>Всего поездок</small><strong id="stat-count">0</strong></div><div class="stat"><small>Общий бюджет</small><strong id="stat-budget">0 ₽</strong></div><div class="stat"><small>Средний бюджет</small><strong id="stat-avg">0 ₽</strong></div></div>
+<div class="toolbar"><input id="search" placeholder="🔎 Поиск по названию и описанию"><select id="status"><option value="all">Все статусы</option><option value="planned">В планах</option><option value="completed">Завершены</option></select><select id="sort"><option value="start_date_asc">По дате ↑</option><option value="start_date_desc">По дате ↓</option><option value="title_asc">По названию</option><option value="budget_desc">По бюджету</option></select><a href="/api/trips/export.csv" class="secondary">↓ CSV</a></div>
+<div id="trip-list" class="trip-grid"></div><div class="pager"><button id="prev" class="secondary">← Назад</button><span id="page-info"></span><button id="next" class="secondary">Вперёд →</button></div>
+<div class="panel"><h2>Поездки по месяцам</h2><div id="month-stats" class="month-list"></div></div><div class="panel"><h2>Безопасность аккаунта</h2><form id="password-form" class="inline-form"><input id="old-password" type="password" placeholder="Текущий пароль" required><input id="new-password" type="password" minlength="6" placeholder="Новый пароль" required><button class="secondary">Изменить пароль</button></form></div><div id="admin-panel" class="panel hidden"><h2>Администратор</h2><div id="admin-content"></div></div></section>
+</main>
+<div id="modal" class="modal hidden"><div class="modal-card"><div class="modal-head"><h2 id="modal-title">Поездка</h2><button id="modal-close" class="icon-button" aria-label="Закрыть">✕</button></div><div id="modal-content"></div></div></div>
+<div id="toast" class="toast hidden" role="status"></div>
+<footer>Учебный проект · Усмонова Марямхон Бахтиёрджоновна · ИСиП1-9-24 · 2026</footer>
+<script src="/static/app.js" defer></script></body></html>
